@@ -7,6 +7,17 @@
 -----------------------
 local S = composting.translator;
 
+if minetest.get_modpath("hopper") then -- NOTE untested
+	hopper:add_container({
+		{"top",    "composting:electric_composter",        "output"}, -- top    of hopper removes from output
+		{"bottom", "composting:electric_composter",        "input"},  -- bottom of hopper inserts to   input
+		{"side",   "composting:electric_composter",        "input"},
+		{"top",    "composting:electric_composter_active", "output"},
+		{"bottom", "composting:electric_composter_active", "input"},
+		{"side",   "composting:electric_composter_active", "input"},
+	})
+end
+
 composting.electric_composter = appliances.appliance:new(
     {
       node_name_inactive = "composting:electric_composter",
@@ -17,6 +28,8 @@ composting.electric_composter = appliances.appliance:new(
       
       usage_stack = 0,
       have_usage = false,
+
+      -- FIXME no way to connect tube to output ?
       
       sounds = {
         running = {
@@ -137,6 +150,12 @@ function electric_composter:recipe_inventory_can_take(pos, listname, index, stac
   end
   return count
 end
+
+    if minetest.get_modpath('ia_util') then
+        function electric_composter:cb_on_production(timer_step)
+	    return ia_util.appliances_cb_on_production(self, timer_step)
+	end
+    end
 
 ----------
 -- Node --

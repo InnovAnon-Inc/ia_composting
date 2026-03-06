@@ -413,3 +413,28 @@ end
 for item_name,item_data in pairs(compostable) do
   composting.add_composting_data(item_name, item_data.amount, item_data.ratio);
 end
+
+
+
+
+
+
+
+
+
+---- Add this at the very end of your composting script
+if minetest.get_modpath("pooper") then
+    -- Register for the Composting API
+    -- amount = 1, ratio = 1 (Very high Nitrogen/Green)
+    composting.add_composting_data('pooper:poop_turd', 1, 1)
+    composting.add_composting_data('pooper:poop_pile', 4, 1)
+
+    -- NOTE looks like llm hallucination
+    -- Flag it for other industrial machines (if you reinstall a refinery)
+    ---- This ensures any 'biomass' check finds it even without the biofuel mod.
+    --if not _G.biomass then _G.biomass = {} end
+    --if not biomass.convertible_items then biomass.convertible_items = {} end
+
+    --biomass.convertible_items['pooper:poop_turd'] = true
+    --biomass.convertible_items['pooper:poop_pile'] = true
+end
