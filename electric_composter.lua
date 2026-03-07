@@ -155,6 +155,7 @@ end
         function electric_composter:cb_on_production(timer_step)
 	    return ia_util.appliances_cb_on_production(self, timer_step)
 	end
+	-- don't need to override formspec
     end
 
 ----------
