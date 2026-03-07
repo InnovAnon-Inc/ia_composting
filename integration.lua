@@ -438,3 +438,11 @@ if minetest.get_modpath("pooper") then
     --biomass.convertible_items['pooper:poop_turd'] = true
     --biomass.convertible_items['pooper:poop_pile'] = true
 end
+if minetest.get_modpath("bonemeal") then
+    -- 1 tree     + 8 leaves ==> 4 mulch
+    -- 9 seeds               ==> 1 mulch
+    composting.add_composting_data('bonemeal:mulch',      16, 100)
+    composting.add_composting_data('bonemeal:bonemeal',    5,   1)
+    -- 1 bonemeal + 1 mulch  ==> 2 fertiliser
+    composting.add_composting_data('bonemeal:fertiliser', 10,  25)
+end

@@ -156,6 +156,18 @@ end
 	    return ia_util.appliances_cb_on_production(self, timer_step)
 	end
 	-- don't need to override formspec
+	--function electric_composter:get_formspec(meta, production_percent, consumption_percent)
+	--    return ia_util.appliances_get_formspec(self, meta, production_percent, consumption_percent)
+        --end
+	--function electric_composter:recipe_aviable_input(inventory)
+	--    return ia_util.appliances_recipe_aviable_input(self, inventory)
+	--end
+	--function electric_composter:recipe_inventory_can_put(pos, listname, index, stack, player_name)
+	--    return ia_util.appliances_recipe_inventory_can_put(self, pos, listname, index, stack, player_name)
+	--end
+	--function electric_composter:recipe_inventory_can_take(pos, listname, index, stack, player_name)
+	--    return ia_util.appliances_recipe_inventory_can_take(self, pos, listname, index, stack, player_name)
+	--end
     end
 
 ----------
