@@ -446,3 +446,6 @@ if minetest.get_modpath("bonemeal") then
     -- 1 bonemeal + 1 mulch  ==> 2 fertiliser
     composting.add_composting_data('bonemeal:fertiliser', 10,  25)
 end
+--if ia_util.has_drinks_redo() then
+--    composting.add_composting_data('drinks:mash_...',   ..., ...)
+--end
