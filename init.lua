@@ -3,6 +3,7 @@ composting = {
   translator = minetest.get_translator("composting"),
   
 }
+composting.mod = 'ia'
 
 local modpath = minetest.get_modpath(minetest.get_current_modname())
 
